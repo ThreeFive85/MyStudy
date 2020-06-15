@@ -3,18 +3,19 @@
 자바스크립트에서의 콜백은 나중에 실행하는 함수  
   
 *자바스크립트에서의 함수 특징*
-1. 다른 함수의 인자로 넘길 수 있다
-2. 리턴값으로도 함수를 쓸 수 있다 
-3. 변수에 함수를 넣을 수도 있다.
+1. 다른 함수의 인자로 넘길 수 있다.
+2. 리턴값으로도 함수를 쓸 수 있다. 
+3. 변수에 함수를 넣을 수도 있다.  
+  
 이러한 이유로 자바스크립트에서의 함수는 일급 객체라고 부른다.
-```
+```js
 setTimeout(function(){
     console.log('hello');
 }, 1000)
 ```
 위 코드에서 setTimeout함수에 첫번째 인자로 함수를 넘기고, 두번째 인자로 시간을 넘긴다. 즉 console.log를 사용하는 함수를 setTimeout함수에게 인자로 넘겨서 나중에 타이머의 시간이 지난 뒤 console.log를 사용하는 함수를 실행하라고 말하는 것이다. 그래서 콜백이라고 한다.  
   
-```
+```js
 function fakeSetTimeout(callback, delay){
     callback();
 }
@@ -26,7 +27,7 @@ console.log(1)
 ```
 fakeSetTimeout은 동기적으로 실행된다. 순차적으로 코드가 실행된다는 말인데 먼저 0이 출력되고 fakeSetTimeout함수를 첫번째 인자로 받은 콜백 함수를 실행시키고 나서 1이 마지막으로 출력된다.  
   
-```
+```js
 console.log(0);
 setTimeout(() =>
  console.log('hello') 
